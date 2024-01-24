@@ -1,0 +1,41 @@
+<p>create works!</p>
+
+
+<div class="container my-5 pt-5">
+  <h2 class="text-center">Register now</h2>
+
+
+  <form action=""  (ngSubmit)="registerDetails(registerForm)" [formGroup]="registerForm">
+
+    <label for="driverName" class="my-2">driverName</label>
+    <input type="text" formControlName="driverName" class="form-control" id="driverName" name="driverName">
+    <div class="alert alert-danger my-2" *ngIf="registerForm.get('driverName')?.errors && registerForm.get('driverName')?.touched">
+
+        <p class="mb-0 "  *ngIf="registerForm.get('first_name')?.errors?.required">This field is required</p>
+        <p  class="mb-0" *ngIf="registerForm.get('first_name')?.errors?.minlength">min length is 2 char</p>
+    </div>
+
+
+    <label for="number" class="my-2">number</label>
+    <input type="number" formControlName="number" class="form-control" id="number" name="number">
+    <div class="alert alert-danger my-2" *ngIf="registerForm.get('number')?.errors && registerForm.get('number')?.touched">
+      <p class="mb-0 "  *ngIf="registerForm.get('number')?.errors?.required">This field is required</p>
+  </div>
+
+    <label for="team" class="my-2">team</label>
+    <input type="text" formControlName="team" class="form-control" id="team" name="team">
+    <div class="alert alert-danger my-2" *ngIf="registerForm.get('team')?.errors && registerForm.get('team')?.touched">
+
+      <p class="mb-0 "  *ngIf="registerForm.get('team')?.errors?.required">This field is required</p>
+      <p  class="mb-0" *ngIf="registerForm.get('team')?.errors?.minlength">min length is 2 char</p>
+
+  </div>
+
+    <button [disabled]="registerForm.invalid" type="submit" class="btn btn-primary my-2">Create</button>
+
+  </form>
+
+
+
+  </div>
+

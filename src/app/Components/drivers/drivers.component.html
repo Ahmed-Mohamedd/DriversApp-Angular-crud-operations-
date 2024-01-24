@@ -1,0 +1,36 @@
+
+<div class="row mb-5">
+  <div class="text-center  col-md-8">
+    <h3 class="text-dark" >All Derivers</h3>
+  </div>
+  <div class="col-md-4">
+    <a  class="btn btn-primary" routerLink="/create">Craete New Driver</a>
+  </div>
+</div>
+
+
+
+  <table class="table table-striped ">
+    <thead>
+      <tr>
+        <th>Id</th>
+        <th>Name</th>
+        <th>Number</th>
+        <th>Team</th>
+        <th>Action</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let driver of Drivers">
+        <td>{{driver.id}}</td>
+        <td>{{driver.driverName}}</td>
+        <td>{{driver.number}}</td>
+        <td>{{driver.team}}</td>
+        <td>
+            <a class="btn btn-warning" [routerLink]="['/edit', driver.id]">Edit</a>|
+            <a class="btn btn-danger" (click)="deleteDriver(driver.id)">Delete</a>
+        </td>
+
+      </tr>
+    </tbody>
+  </table>
